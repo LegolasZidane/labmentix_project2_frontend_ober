@@ -26,7 +26,7 @@ export default function LocationInput({ label, value, setValue, setCoords }){
                     inputValue
                 )}&apiKey=${geoapifyKey}`
             );
-
+            setSuggestions(res.data.features || []);
         }   catch(err){
             console.error("Autocomplete error:", err);
         }

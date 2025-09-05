@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { UserButton } from "@clerk/clerk-react";
 import LocationInput from "./LocationInput";
 import MapView from "./MapView";
