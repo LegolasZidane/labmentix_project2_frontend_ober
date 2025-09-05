@@ -11,7 +11,7 @@ L.Icon.Default.mergeOptions({
     shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
 
-export default function MapPicker({ originCoords, destinationCoords }){
+export default function MapView({ originCoords, destinationCoords }){
 
     return (
             <MapContainer

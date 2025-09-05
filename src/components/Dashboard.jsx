@@ -1,7 +1,14 @@
 import { UserButton } from "@clerk/clerk-react";
-import MapPicker from "./MapPicker";
+import LocationInput from "./LocationInput";
+import MapView from "./MapView";
 
 export default function Dashboard(){
+    
+    const [ origin, setOrigin ] = useState("");
+    const [ destination, setDestination ] = useState("");
+    const [ originCoords, setOriginCoords ] = useState(null);
+    const [ destinationCoords, setDestinationCoords ] = useState(null);
+    
     return (
 
         <div className="h-screen flex bg-white text-black">
@@ -14,16 +21,20 @@ export default function Dashboard(){
                 </div>
 
                 <div className="space-y-4">
-                    <input 
-                        type="text" 
-                        placeholder="Pickup Location"
-                        className="w-full px-4 py-3 rounded-lg text-black"
+                    <LocationInput
+                        label="Pickup Location"
+                        value={origin}
+                        setValue={setOrigin}
+                        setCoords={setOriginCoords}
                     />
-                    <input 
-                        type="text" 
-                        placeholder="Dropoff Location"
-                        className="w-full px-4 py-3 rounded-lg text-black"
+
+                    <LocationInput
+                        label="Dropoff Location"
+                        value={destination}
+                        setValue={setDestination}
+                        setCoords={setDestinationCoords}
                     />
+
                     <button className="w-full bg-black text-white font-semibold py-3 rounded-lg">
                         Search
                     </button>
@@ -35,7 +46,10 @@ export default function Dashboard(){
             </div>
 
             <div className="w-2/3 h-full">
-                <MapPicker />
+                <MapView
+                    originCoords={originCoords}
+                    destinationCoords={destinationCoords}
+                />
             </div>
         </div>
     );
