@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { UserButton } from "@clerk/clerk-react";
 import LocationInput from "./LocationInput";
 import MapView from "./MapView";
+import FareEstimate from './FareEstimate';
 
 export default function Dashboard(){
     
@@ -39,6 +40,11 @@ export default function Dashboard(){
                     <button className="w-full bg-black text-white font-semibold py-3 rounded-lg">
                         Search
                     </button>
+
+                    <FareEstimate
+                        originCoords={originCoords}
+                        destinationCoords={destinationCoords}
+                    />
                 </div>
 
                 <div className="text-sm text-gray-400 mt-8">
@@ -46,7 +52,7 @@ export default function Dashboard(){
                 </div>
             </div>
 
-            <div className="w-2/3 h-full">
+            <div className="w-2/3 h-screen">
                 <MapView
                     originCoords={originCoords}
                     destinationCoords={destinationCoords}
