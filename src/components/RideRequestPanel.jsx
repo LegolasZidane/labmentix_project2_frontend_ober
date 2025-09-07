@@ -7,6 +7,7 @@ export default function RideRequestPanel({ originCoords, setOriginCoords, destin
 
     const [ origin, setOrigin ] = useState("");
     const [ destination, setDestination ] = useState("");
+    const [ ride, setRide ] = useState(null);
 
     const handleRequestRide = async () => {
 
@@ -22,7 +23,7 @@ export default function RideRequestPanel({ originCoords, setOriginCoords, destin
                 destination: destinationCoords
             });
             console.log("Ride requested:", res.data);
-            alert("Ride requested successfully!");
+            setRide(res.data);
         }   catch(err){
             console.error("Failed to request ride:", err);
             alert("Failed to request ride");
@@ -60,6 +61,15 @@ export default function RideRequestPanel({ originCoords, setOriginCoords, destin
                         originCoords={originCoords}
                         destinationCoords={destinationCoords}
                     />
+
+                    {ride && (
+                        <div className="mt-6 p-4 border rounded bg-gray-100">
+                            <h2 className="text-lg font-bold">Driver Assigned🚖</h2>
+                            <p><strong>Name:</strong> {ride.driver.name}</p>
+                            <p><strong>Vehicle:</strong> {ride.driver.vehicle}</p>
+                            <p><strong>Phone:</strong> {ride.driver.phone}</p>
+                        </div>
+                    )}
                 </div>
             </div>
 
