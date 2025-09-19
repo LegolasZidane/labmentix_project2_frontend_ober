@@ -16,7 +16,7 @@ useEffect(() => {
 
         try{
 
-            const res = await axios.post("http://localhost:3000/fare/estimate", {
+            const res = await axios.post("https://labmentix-project2-backend-ober.onrender.com/fare/estimate", {
                 origin: originCoords, 
                 destination: destinationCoords
             });

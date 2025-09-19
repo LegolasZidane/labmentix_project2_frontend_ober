@@ -19,7 +19,7 @@ export default function RideRequestPanel({ originCoords, setOriginCoords, destin
 
         try {
 
-            const res = await axios.post("http://localhost:3000/rides", {
+            const res = await axios.post("https://labmentix-project2-backend-ober.onrender.com/rides", {
                 origin: originCoords,
                 destination: destinationCoords
             });
@@ -35,7 +35,7 @@ export default function RideRequestPanel({ originCoords, setOriginCoords, destin
 
         try {
 
-            const res = await axios.post("http://localhost:3000/payment/create-session", {
+            const res = await axios.post("https://labmentix-project2-backend-ober.onrender.com/create-session", {
                 rideId: ride.id,
                 fare: ride.fare
             });
